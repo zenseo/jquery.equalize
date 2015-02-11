@@ -11,8 +11,8 @@ An easy way to achieve equaly tall sets of content boxes regardless the length o
 
 ## Methods
 
-$el.equalize('applySettings', [object]): Apply new settings. They will be merged with the default settings, not the previous settings.
-$el.equalize('off'): Unbind the plugin.
+- $el.equalize('applySettings', [object]): Apply new settings. They will be merged with the default settings, not the previous settings.
+- $el.equalize('off'): Unbind the plugin.
 
 ## Examples
 
