@@ -6,7 +6,7 @@ An easy way to achieve equaly tall sets of content boxes regardless the length o
 
 - '$window' - the parent resizing element, in most cases the window ($(window))
 - 'responsive' - recalculate on resize (true)
-- 'attribute' - in rare cases 'min-height' is the better option (height)
+- 'attribute' - in rare cases 'min-height' is the better option ('height')
 - 'breakpoints' - the breakpoint threshold shortcodes ({'md': 1200, 'sm': 992, 'xs': 768})
 
 ## Methods
@@ -73,7 +73,7 @@ Breakpoints can be used to disable the plugin at a certain mininmal window (as d
 
 ### Linked Sub-Elements
 
-Instead of resizing the whole child element you can also define a linked sub-element that will be resized instead. This helps to solve problems with more complex layouts and cross browser issues. You can also define more than one linked element although this can lead to undesired results.
+Instead of resizing the whole child element you can also define a linked sub-element that will be resized instead to achive equal height. This helps to solve problems with more complex layouts and padding/margin issues. You can also define more than one linked element although this can lead to undesired results.
 
 ```html
 <div id="set">
@@ -87,6 +87,30 @@ Instead of resizing the whole child element you can also define a linked sub-ele
 		<div id="inner-content-box">
 				A bit more content.
 		</div>
+	</div>
+</div>
+```
+
+```html
+<script>
+	$('#set').equalize();
+</script>
+```
+
+### Ignore Child Elements
+
+To ignore child elements add the equalize-ignore data attribute.
+
+```html
+<div id="set">
+	<h1 data-equalize-ignore>Headline</h1>
+
+	<div class="box">
+		Some content.
+	</div>
+
+	<div class="box">
+		A bit more content.
 	</div>
 </div>
 ```

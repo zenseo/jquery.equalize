@@ -1,43 +1,103 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
 	<head>
-		<title>TODO supply a title</title>
+		<title>jQuery.Equalizer Examples</title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-		<script src="../build/jquery.equalizer.js"></script>
+		<script src="../build/jquery.equalize.js"></script>
+
+		<link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
 
 		<script>
 			$(document).ready(function () {
 				$('#set').equalize();
+				$('#set_2').equalize();
 			});
 		</script>
+
+		<style type="text/css">
+			body {
+				margin:0;
+				padding:0;
+				font-family: 'PT Sans', sans-serif;
+				color:#333;
+			}
+
+			h1 {
+				margin-top:50px;
+				text-align:center;
+			}
+			
+			h2 {
+				text-align:center;
+				margin-bottom:0;
+			}
+
+			.set {
+				width:80%;
+				margin:0 10%;
+				float:left;
+				padding-bottom:30px;
+			}
+
+			.box {
+				width:23%;
+				float:left;
+				padding:20px 3%;
+				margin:10px 2%;
+				background-color:#eee;
+				border:1px dashed #aaa;
+			}
+
+			@media only all and (max-width: 767px) {
+				.box-responsive {
+					width:90%;
+				}
+			}
+		</style>
 	</head>
 	<body>
-		<div id="set" data-blowup-break="sm">
 
-			<div class="box" data-equalizer-link2="some-child" style="border:1px solid red; float:left; width:30%;">
-				<div class="some-child">
+		<div id="set" class="set" data-equalize-breakpoint="xs">
+			<h1 data-equalize-ignore>Breakpoint Example</h1>
+
+			<div class="box box-responsive">
+				Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kas.
+			</div>
+
+			<div class="box box-responsive">
+				Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kas. 					Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kas.
+			</div>
+
+			<div class="box box-responsive">
+				Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kas.		Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod te
+			</div>
+		</div>
+
+		<div id="set_2" class="set">
+			<h1 data-equalize-ignore>Linked Sub-Element Example</h1>
+
+			<div class="box" data-equalize-link=".box-inner">
+				<div class="box-inner">
 					Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kas.
 				</div>
+				<h2>Perfect Placement</h2>
 			</div>
 
-			<div class="box" data-equalizer-link2="some-child" style="border:1px solid red; float:left; width:30%;">
-				<div class="some-child">
+			<div class="box" data-equalize-link=".box-inner">
+				<div class="box-inner">
 					Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kas. 					Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kas.
 				</div>
+				<h2>Looks Fine</h2>
 			</div>
 
-			<div class="box" data-equalizer-link2="some-child" style="border:1px solid red; float:left; width:30%;">
-				<div class="some-child">
+			<div class="box" data-equalize-link=".box-inner">
+				<div class="box-inner">
 					Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kas.		Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod te
 				</div>
+				<h2>Everytime</h2>
 			</div>
 		</div>
 

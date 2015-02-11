@@ -47,14 +47,14 @@
 					methods.applySettings.apply(this, [options]);
 
 					// set breakpoint
-					$this.data('equalize').breackpoint = $this.data('equalize-breakpoint');
+					$this.data('equalize').breakpoint = $this.data('equalize-breakpoint');
 
 					// set linked elements
 					$this.children().each(function () {
 						var $child = $(this);
 
 						// check if element is ignored
-						if ($child.data('equalize-ignore') !== 'true') {
+						if ($child.data('equalize-ignore') === undefined) {
 							links = false;
 
 							// get linked sub-elements
@@ -82,7 +82,7 @@
 			var settings = $(this).data('equalize').settings = $.extend({}, methods.defaults, options);
 
 			// set responsive resizing
-			settings.$window.off('resize.equalize'); // unbind resize (reset)
+			settings.$window.off('resize.equalize', functions.lazyResize.call); // unbind resize (reset)
 			if (settings.responsive) {
 				// bind resize
 				settings.$window.on('resize.equalize', function () {
@@ -130,6 +130,7 @@
 
 			// check breakpoint
 			var win_width = data.settings.$window.width();
+			
 			if (data.breakpoint && data.settings.breakpoints[data.breakpoint] !== undefined && data.settings.breakpoints[data.breakpoint] > win_width) {
 				return false; // breakpoint reached, abort resizing
 			}
