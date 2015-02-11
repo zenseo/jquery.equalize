@@ -1,6 +1,11 @@
 /*!
  * jQuery Equalize
  * 
+ * An easy way to achieve equaly tall sets of content boxes. 
+ * This plugins supports responsive layouts and breakpoints.
+ * 
+ * @author		B2 Communcations GmbH
+ * @url        https://github.com/B2communications/jquery.equalizer
  * @version    1.0
  * @license    Licensed under MIT, see license.txt
  */
@@ -12,10 +17,10 @@
 	var methods = {
 		// default settings
 		defaults: {
-			'window': $(window), // resizing element
-			'responsive': true, // bind resize
-			'attribute': 'height', // height or min-height
-			'thresholds': {
+			'$window': $(window), // the parent resizing element, in most cases the window
+			'responsive': true, // recalculate on resize
+			'attribute': 'height', // in rare cases 'min-height' is the better option
+			'breakpoints': {
 				'md': 1200,
 				'sm': 992,
 				'xs': 768
@@ -53,9 +58,9 @@
 							links = false;
 
 							// get linked sub-elements
-							var link_class = $child.data('equalize-link');
-							if (link_class !== undefined) {
-								links = $child.find('.' + link_class);
+							var link_selector = $child.data('equalize-link');
+							if (link_selector !== undefined) {
+								links = $child.find(link_selector);
 							}
 
 							$this.data('equalize').children.push({
@@ -77,10 +82,10 @@
 			var settings = $(this).data('equalize').settings = $.extend({}, methods.defaults, options);
 
 			// set responsive resizing
-			settings.window.off('resize.equalize'); // unbind resize (reset)
+			settings.$window.off('resize.equalize'); // unbind resize (reset)
 			if (settings.responsive) {
 				// bind resize
-				settings.window.on('resize.equalize', function () {
+				settings.$window.on('resize.equalize', function () {
 					functions.lazyResize.call(_this);
 				});
 			}
@@ -89,7 +94,7 @@
 		off: function () {
 			var $this = $(this);
 			$this.off('equalize');
-			$this.data('equalize').settings.window.off('equalize');
+			$this.data('equalize').settings.$window.off('equalize');
 			methods.stop.apply(this);
 			$.removeData(this, 'equalize');
 		}
@@ -124,8 +129,8 @@
 			});
 
 			// check breakpoint
-			var win_width = data.settings.window.width();
-			if (data.breakpoint && data.settings.thresholds[data.breakpoint] !== undefined && data.settings.thresholds[data.breakpoint] > win_width) {
+			var win_width = data.settings.$window.width();
+			if (data.breakpoint && data.settings.breakpoints[data.breakpoint] !== undefined && data.settings.breakpoints[data.breakpoint] > win_width) {
 				return false; // breakpoint reached, abort resizing
 			}
 
