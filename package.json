@@ -1,0 +1,14 @@
+{
+   "name": "require.js",
+   "version": "1.0.0",
+   "repository": {
+      "type": "git",
+      "url": "git@github.com:B2/require.js.git"
+   },
+   "devDependencies": {
+      "gulp": "*",
+      "gulp-util": "*",
+      "gulp-uglify": "*",
+      "gulp-rename": "*"
+   }
+}
