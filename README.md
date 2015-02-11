@@ -40,7 +40,7 @@ This is the most simple way to use jQuery.Equalize.
 
 ### Breakpoints
 
-Breakpoints can be used to disable the plugin at a certain mininmal window (as defined in the settings) width. There are three predefined breakpoints for Bootstrap, set your own shortcodes for more flexibility.
+Breakpoints can be used to disable the plugin at a certain mininmal window (as defined in the settings) width. There are three predefined breakpoints for Bootstrap, set your own breakpoint shortcodes for more flexibility.
 
 ```html
 <div id="set" data-equalize-breakpoint="sm">
