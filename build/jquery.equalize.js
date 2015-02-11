@@ -1,7 +1,7 @@
 /*!
  * jQuery Equalize
  * 
- * An easy way to achieve equaly tall sets of content boxes. 
+ * An easy way to achieve equaly tall sets of content boxes regardless the length of their content.
  * This plugins supports responsive layouts and breakpoints.
  * 
  * @author		B2 Communcations GmbH
