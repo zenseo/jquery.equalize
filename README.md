@@ -73,11 +73,11 @@ Breakpoints can be used to disable the plugin at a certain minimal window (as de
 
 ### Linked Sub-Elements
 
-Instead of resizing the whole child element you can also define a linked sub-element that will be resized instead to achive equal height. This helps to solve problems with more complex layouts and padding/margin issues. You can also define more than one linked element although this can lead to undesired results.
+Instead of resizing the whole child element you can also define a linked sub-element that will be resized instead to achive equal heights. This helps to solve problems with more complex layouts and padding/margin issues. You can also define more than one linked element although this can lead to undesired results.
 
 ```html
 <div id="set">
-	<div class="box" data-equalize-link=".inner-wrapper">
+	<div class="box" data-equalize-link=".content-wrapper">
 		<div class="content-wrapper">
 			Some content.
 		</div>
@@ -85,7 +85,7 @@ Instead of resizing the whole child element you can also define a linked sub-ele
 
 	<div class="box" data-equalize-link="#inner-content-box">
 		<div id="inner-content-box">
-				A bit more content.
+			A bit more content.
 		</div>
 	</div>
 </div>
@@ -99,7 +99,7 @@ Instead of resizing the whole child element you can also define a linked sub-ele
 
 ### Ignore Child Elements
 
-To ignore child elements add the equalize-ignore data attribute.
+To exclude child elements from heigh changes add the 'equalize-ignore' data attribute.
 
 ```html
 <div id="set">
