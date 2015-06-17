@@ -40,7 +40,7 @@ This is the most simple way to use jQuery.Equalize.
 
 ### Breakpoints
 
-Breakpoints can be used to disable the plugin at a certain minimal window (as defined in the settings) width. There are three predefined breakpoints for Bootstrap, set your own breakpoint shortcodes for more flexibility.
+Breakpoints can be used to disable the plugin at a certain minimal window (as defined in the settings) width. Use the three predefined breakpoints if you work with Bootstrap grids or define your own breakpoints for more flexibility.
 
 ```html
 <div id="set" data-equalize-breakpoint="sm">
@@ -71,9 +71,9 @@ Breakpoints can be used to disable the plugin at a certain minimal window (as de
 </script>
 ```
 
-### Linked Sub-Elements
+### Resize Sub-Elements
 
-Instead of resizing the whole child element you can also define a linked sub-element that will be resized instead to achive equal heights. This helps to solve problems with more complex layouts and padding/margin issues. You can also define more than one linked element although this can lead to undesired results.
+Instead of resizing the whole element you can also define a sub-element that will be resized instead to achive equal heights. This helps to solve problems with more complex layouts and padding or margin issues. You can also define more than one linked element although this can lead to undesired results.
 
 ```html
 <div id="set">
@@ -99,7 +99,7 @@ Instead of resizing the whole child element you can also define a linked sub-ele
 
 ### Ignore Child Elements
 
-To exclude child elements from heigh changes add the 'equalize-ignore' data attribute.
+To exclude child elements from height changes add the 'equalize-ignore' data attribute.
 
 ```html
 <div id="set">
