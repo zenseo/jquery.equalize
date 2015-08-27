@@ -6,7 +6,7 @@
  * 
  * @author		B2 Communcations GmbH
  * @url        https://github.com/B2communications/jquery.equalizer
- * @version    1.01
+ * @version    1.02
  * @license    Licensed under MIT, see license.txt
  */
 
@@ -50,27 +50,31 @@
                     $this.data('equalize').breakpoint = $this.data('equalize-breakpoint');
 
                     // set linked elements
-                    $this.children().each(function () {
-                        var $child = $(this);
+                    var $children = $this.children();
 
-                        // check if element is ignored
-                        if ($child.data('equalize-ignore') === undefined) {
-                            links = false;
+                    if ($children.length > 1) {
+                        $children.each(function () {
+                            var $child = $(this);
 
-                            // get linked sub-elements
-                            var link_selector = $child.data('equalize-link');
-                            if (link_selector !== undefined) {
-                                links = $child.find(link_selector);
+                            // check if element is ignored
+                            if ($child.data('equalize-ignore') === undefined) {
+                                links = false;
+
+                                // get linked sub-elements
+                                var link_selector = $child.data('equalize-link');
+                                if (link_selector !== undefined) {
+                                    links = $child.find(link_selector);
+                                }
+
+                                $this.data('equalize').children.push({
+                                    '$el': $child,
+                                    '$links': links
+                                });
                             }
+                        });
 
-                            $this.data('equalize').children.push({
-                                '$el': $child,
-                                '$links': links
-                            });
-                        }
-                    });
-
-                    functions.doResize.apply(this); // initial
+                        functions.doResize.apply(this); // initial
+                    }
                 }
             });
         },
